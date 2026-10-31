@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+<rect width="300" height="300" rx="48" fill="#FFFFFF"/>
+<g transform="translate(150 128)">
+  <polygon points="0,-78 68,-39 68,39 0,78 -68,39 -68,-39" fill="none" stroke="#15191D" stroke-width="10" stroke-linejoin="round"/>
+  <g stroke="#0E7C7B" stroke-width="8" stroke-linecap="round">
+    <line x1="-34" y1="-20" x2="0" y2="0"/><line x1="34" y1="-20" x2="0" y2="0"/>
+    <line x1="0" y1="0" x2="0" y2="40"/><line x1="-34" y1="-20" x2="-34" y2="20"/><line x1="34" y1="-20" x2="34" y2="20"/>
+  </g>
+  <g fill="#0E7C7B">
+    <circle cx="-34" cy="-20" r="11"/><circle cx="34" cy="-20" r="11"/><circle cx="0" cy="40" r="11"/>
+    <circle cx="-34" cy="20" r="11"/><circle cx="34" cy="20" r="11"/>
+  </g>
+  <circle cx="0" cy="0" r="14" fill="#15191D"/>
+</g>
+<text x="150" y="246" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="26" fill="#15191D" letter-spacing="1">JON BUSH</text>
+<text x="150" y="272" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#0E7C7B" letter-spacing="4">ENTERPRISES</text>
+</svg>

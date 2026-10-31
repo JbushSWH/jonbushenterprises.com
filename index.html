@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jon Bush Enterprises</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<meta name="description" content="Enterprise data platforms, SaaS integrations and custom software. Fixed scope, fixed price, half up front. Miami, FL.">
+<meta property="og:title" content="Jon Bush Enterprises">
+<meta property="og:description" content="Production data platforms, integrations and custom software for companies that have outgrown spreadsheets. Fixed scope, fixed price.">
+<meta property="og:image" content="https://jonbushenterprises.com/assets/logo.png">
+<meta property="og:url" content="https://jonbushenterprises.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: single column, max 1040px, project pages routed on the hash. Graphite neutrals, one teal accent, mono for figures. */
+  --bg:#F5F6F7; --surface:#FFFFFF; --ink:#15191D; --muted:#5B646D; --line:#DDE1E5;
+  --accent:#0E7C7B; --accent-ink:#FFFFFF; --accent-soft:#E3F2F1;
+  --display:'Manrope',system-ui,-apple-system,Segoe UI,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1317; --surface:#171C21; --ink:#ECEFF2; --muted:#9AA4AE; --line:#2A323A;
+    --accent:#3FB5B2; --accent-ink:#0B1A1A; --accent-soft:#163233; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1317; --surface:#171C21; --ink:#ECEFF2; --muted:#9AA4AE; --line:#2A323A;
+  --accent:#3FB5B2; --accent-ink:#0B1A1A; --accent-soft:#163233; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;letter-spacing:-0.01em}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:-0.01em}
+.brand span{color:var(--accent)}
+.nav ul{list-style:none;display:flex;gap:20px;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:12px 20px;border-radius:8px;font-family:var(--display);border:0;cursor:pointer;font-size:1rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+section{padding:64px 0}
+section + section{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px}
+.lede{font-size:1.2rem;color:var(--muted);max-width:40em;margin-top:18px}
+.hero{padding:72px 0 56px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:44px}
+.proof div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.proof b{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:500;font-variant-numeric:tabular-nums}
+.proof small{color:var(--muted);font-size:.9rem}
+.grid{display:grid;gap:16px;margin-top:28px}
+.grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.card .price{font-family:var(--mono);font-size:1.05rem;color:var(--ink)}
+.card ul{margin:0;padding-left:18px;color:var(--muted)}
+.card li{margin:4px 0}
+.card .fit{font-size:.95rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.terms{margin-top:28px;background:var(--accent-soft);border-radius:12px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.terms .split{display:flex;gap:8px;font-family:var(--mono);font-size:.95rem}
+.terms .split span{background:var(--surface);border:1px solid var(--line);padding:8px 12px;border-radius:8px}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:28px}
+.work a{color:inherit;text-decoration:none}
+.work .card:hover{border-color:var(--accent)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.75rem;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.live{border-color:var(--accent);color:var(--accent)}
+.work .meta{display:flex;gap:8px;flex-wrap:wrap}
+.work .more{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:auto}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px;counter-reset:step}
+.steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.steps div::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:var(--mono);color:var(--accent);display:block;margin-bottom:8px}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.about .facts{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:10px;font-size:.95rem}
+.about .facts b{font-weight:600}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.contact{background:var(--surface)}
+.contact .box{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.contact .ways{display:grid;gap:10px;font-size:1rem}
+.contact .ways a{word-break:break-all}
+footer{padding:28px 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+/* project pages */
+.project{display:none}
+.project.active{display:block}
+.project .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:.95rem;margin-bottom:28px}
+.project .head{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:start}
+.project .status{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.project .facts{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:14px}
+.project .facts dt{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.project .facts dd{margin:4px 0 0;font-variant-numeric:tabular-nums}
+.project .facts dl{margin:0}
+.project .body{max-width:66ch;margin-top:40px;display:grid;gap:28px}
+.project .body ul{margin:0;padding-left:20px;display:grid;gap:8px}
+.project .body h3{margin-bottom:12px}
+.project .next{margin-top:48px;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+#home.hidden{display:none}
+@media (max-width:720px){
+  .about,.contact .box,.project .head,.terms{grid-template-columns:1fr}
+  section{padding:48px 0}
+  .hero{padding:48px 0 40px}
+}
+@media (prefers-reduced-motion: no-preference){
+  .work .card{transition:border-color .15s}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#" data-home><img src="assets/logo.svg" alt="" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;border-radius:6px">Jon Bush <span>Enterprises</span></a>
+    <ul>
+      <li><a href="#services" data-home>Services</a></li>
+      <li><a href="#work" data-home>Work</a></li>
+      <li><a href="#process" data-home>Process</a></li>
+      <li><a href="#about" data-home>About</a></li>
+      <li><a href="#contact" data-home>Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Enterprise data, automation and software · Miami, FL</p>
+    <h1>Production systems for companies that have outgrown spreadsheets and point tools.</h1>
+    <p class="lede">I design and build data platforms, SaaS integrations and custom software that run unattended, reconcile to the penny, and ship with tests. Fixed scope, fixed price, half up front.</p>
+    <div class="cta">
+      <a class="btn" href="#contact" data-home>Book a scoping call</a>
+      <a class="btn ghost" href="#work" data-home>See the work</a>
+    </div>
+    <div class="proof">
+      <div><b>4M+</b><small>Florida permits indexed for PermitVista</small></div>
+      <div><b>50+</b><small>public-records systems integrated</small></div>
+      <div><b>$0.00</b><small>variance across 500+ reconciled fills</small></div>
+      <div><b>~85 ms</b><small>order latency, live trading engine</small></div>
+      <div><b>10+ yrs</b><small>Python, Azure, Salesforce, Snowflake</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">Services</p>
+    <h2>Three ways to engage. Each one is a fixed-scope build with a deposit.</h2>
+    <div class="grid three">
+      <article class="card">
+        <h3>Data Platform Build</h3>
+        <p class="price">From $15,000</p>
+        <p>Pull your SaaS and operational data into one warehouse, model it, and put dashboards on top. Salesforce, HubSpot, call-center and LMS systems into Snowflake, Azure SQL or Postgres.</p>
+        <ul>
+          <li>Incremental pipelines with change detection and retries</li>
+          <li>Nightly reconciliation against source systems</li>
+          <li>Dashboards and a documented data model</li>
+          <li>CI/CD, monitoring and runbooks</li>
+        </ul>
+        <p class="fit">Fits: operations, finance and sales teams reporting out of exports and spreadsheets.</p>
+      </article>
+      <article class="card">
+        <h3>Automation &amp; Integration</h3>
+        <p class="price">From $8,000</p>
+        <p>Connect the systems your team re-keys between by hand. Real-time webhooks, two-way sync, payment and messaging automation, with an event log so every action is traceable.</p>
+        <ul>
+          <li>CRM, billing, telephony and e-signature integrations</li>
+          <li>Webhook event store and replay</li>
+          <li>Email and SMS workflows</li>
+          <li>Admin tooling and kill switches</li>
+        </ul>
+        <p class="fit">Fits: firms with 3+ tools that don't talk to each other and staff who copy between them.</p>
+      </article>
+      <article class="card">
+        <h3>Custom SaaS &amp; Platforms</h3>
+        <p class="price">From $25,000</p>
+        <p>A production application from scope to launch: multi-tenant backend, web app, payments, auth and deployment. Built the way I build my own products.</p>
+        <ul>
+          <li>FastAPI or NestJS backend, React or Next.js front end</li>
+          <li>Payments (Stripe, Square, LawPay), SSO and roles</li>
+          <li>Automated test suite and release versioning</li>
+          <li>Azure or Render hosting with CI/CD</li>
+        </ul>
+        <p class="fit">Fits: founders and operators with a validated idea who need a senior builder, not an agency.</p>
+      </article>
+    </div>
+    <div class="terms">
+      <div>
+        <h3>Payment terms</h3>
+        <p style="color:var(--muted);margin-top:6px">Every engagement starts with a written scope and a deposit. Work begins when the deposit clears. Milestones are defined in the scope, so you always know what's next and what it costs.</p>
+      </div>
+      <div class="split"><span>50% to start</span><span>25% at milestone</span><span>25% on delivery</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Selected work</p>
+    <h2>Five production systems across fintech, proptech, legal, mobility and trading.</h2>
+    <div class="work">
+      <a href="#permitvista"><article class="card">
+        <div class="meta"><span class="tag live">Live · paying customers</span><span class="tag">Proptech</span></div>
+        <h3>PermitVista</h3>
+        <p style="color:var(--muted)">Instant building-permit history for any Florida property. 4M+ permits, 50+ jurisdictions, results in seconds.</p>
+        <span class="more">Read the case study →</span>
+      </article></a>
+      <a href="#espiral"><article class="card">
+        <div class="meta"><span class="tag live">Live · pre-launch</span><span class="tag">Fintech</span></div>
+        <h3>Espiral USA</h3>
+        <p style="color:var(--muted)">Cross-border money app on stablecoin rails. 5 corridors, same-day sends, built as CTO with a two-person team.</p>
+        <span class="more">Read the case study →</span>
+      </article></a>
+      <a href="#polymarket-edge"><article class="card">
+        <div class="meta"><span class="tag live">Live · production</span><span class="tag">Trading systems</span></div>
+        <h3>Polymarket Edge</h3>
+        <p style="color:var(--muted)">24/7 market-making engine quoting 58 markets, with fill-by-fill reconciliation to $0.00 variance.</p>
+        <span class="more">Read the case study →</span>
+      </article></a>
+      <a href="#moviz"><article class="card">
+        <div class="meta"><span class="tag">Live beta</span><span class="tag">Marketplace</span></div>
+        <h3>Moviz</h3>
+        <p style="color:var(--muted)">Peer-to-peer car rental marketplace for Guadalajara. 63 API endpoints, 129 tests, bilingual, with chauffeurs.</p>
+        <span class="more">Read the case study →</span>
+      </article></a>
+      <a href="#juryflow"><article class="card">
+        <div class="meta"><span class="tag">In development</span><span class="tag">Legal tech</span></div>
+        <h3>JuryFlow</h3>
+        <p style="color:var(--muted)">Multi-tenant legal CRM, billing and intake platform syncing with Clio, Filevine and LawPay.</p>
+        <span class="more">Read the case study →</span>
+      </article></a>
+      <article class="card">
+        <div class="meta"><span class="tag">Enterprise · 2023–2026</span><span class="tag">Healthcare nonprofit</span></div>
+        <h3>CRM &amp; Data Integration Platform</h3>
+        <p style="color:var(--muted)">Salesforce, IntakeQ, Azure and SQL Server integration for a veteran-services organization: 243,000+ records across 9 entities, sub-3-second webhooks, ETL cut from days to minutes.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <p class="eyebrow">Process</p>
+    <h2>How an engagement runs.</h2>
+    <div class="steps">
+      <div><h3>Scoping call</h3><p style="color:var(--muted);margin-top:8px">30 minutes. You describe the problem, I ask about systems, volumes and who touches the data. Free.</p></div>
+      <div><h3>Written scope &amp; price</h3><p style="color:var(--muted);margin-top:8px">Within 3 business days: deliverables, milestones, fixed price and timeline. No hourly surprises.</p></div>
+      <div><h3>Deposit, then build</h3><p style="color:var(--muted);margin-top:8px">50% deposit starts the work. Weekly written updates, a shared repo, and a demo at each milestone.</p></div>
+      <div><h3>Delivery &amp; handoff</h3><p style="color:var(--muted);margin-top:8px">Tests passing, CI/CD in place, runbook written, your team trained. Optional retainer for support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Jonathan Bush</h2>
+      <p class="lede" style="margin-top:14px">Senior engineer and founder based in Miami Beach. I've spent a decade building and testing production systems for regulated and high-volume businesses: payments at Verifone, pharma at Bristol Myers Squibb, supply chain at Southern Glazer's, and healthcare CRM integration for a national veteran-services nonprofit.</p>
+      <p style="margin-top:16px;color:var(--muted)">Since 2020 I've run Jon Bush Enterprises and shipped my own products, so I build client systems the way I build things I have to operate myself: reconciled, monitored, tested, and documented. I'm currently CTO of Espiral USA and co-founder of Moviz.</p>
+      <div class="stack">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Azure</span><span class="tag">Snowflake</span><span class="tag">PostgreSQL</span><span class="tag">Azure SQL</span><span class="tag">Salesforce</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span><span class="tag">Azure DevOps</span><span class="tag">Stripe</span>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>Company</b><br>Jon Bush Enterprises LLC, Florida, est. 2020</div>
+      <div><b>Current roles</b><br>CTO, Espiral USA · Co-founder &amp; CTO, Moviz</div>
+      <div><b>Education</b><br>B.S. Business &amp; Computer Science, University of Tampa</div>
+      <div><b>Working style</b><br>Remote, US Eastern hours. Direct access to the engineer doing the work.</div>
+      <div><b>LinkedIn</b><br><a href="https://www.linkedin.com/in/jbush-engineer/">linkedin.com/in/jbush-engineer</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap box">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Tell me what's broken or slow. I'll tell you what it takes to fix it.</h2>
+      <p class="lede" style="margin-top:14px">Scoping calls are free and take 30 minutes. You'll have a written scope and fixed price within three business days.</p>
+    </div>
+    <div class="ways">
+      <a class="btn" href="https://www.linkedin.com/in/jbush-engineer/">Message me on LinkedIn</a>
+      <div style="color:var(--muted)">Email: <a href="mailto:hello@jonbushenterprises.com">hello@jonbushenterprises.com</a></div>
+      <div style="color:var(--muted)">Based in Miami Beach, Florida · Working with clients across the US and Latin America</div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 Jon Bush Enterprises LLC · Florida</div></footer>
+</main>
+
+<!-- ===================== PROJECT PAGES ===================== -->
+
+<article class="project" id="permitvista">
+<section><div class="wrap">
+  <a class="back" href="#work" data-home>← All work</a>
+  <div class="head">
+    <div>
+      <p class="eyebrow">Case study · Proptech</p>
+      <h1>PermitVista</h1>
+      <p class="lede">Instant building-permit history for any Florida property.</p>
+      <div class="status"><span class="tag live">Live · paying customers</span><span class="tag">Founder &amp; sole engineer</span></div>
+      <a class="btn ghost" href="https://permitvista.com">Visit permitvista.com</a>
+    </div>
+    <div class="facts"><dl>
+      <dt>Scale</dt><dd>4M+ permits indexed · 50+ jurisdictions · results in seconds</dd>
+      <dt>Stack</dt><dd>Python · FastAPI · Azure SQL · Azure VM collector · Render · WeasyPrint · Square · SendGrid · GitHub Actions</dd>
+      <dt>Quality</dt><dd>CI pipeline · 71 automated tests</dd>
+    </dl></div>
+  </div>
+  <div class="body">
+    <div><h3>The problem</h3><p>Open or expired permits derail closings. Agents, title companies, investors and homeowners used to check county portals one property at a time, each with its own search, its own formats and its own gaps. A single missed permit can hold up a sale or land on the new owner.</p></div>
+    <div><h3>What I built</h3><ul>
+      <li>A FastAPI search engine merging a statewide permit index with 50+ county and city public-records integrations</li>
+      <li>Nightly bulk loads plus live lookups, with caching and de-duplication across sources</li>
+      <li>Automated open/expired flagging and branded PDF certificates ready for the closing file</li>
+      <li>Self-serve monetization: free teaser, per-permit or whole-address unlocks, and subscriptions, with Square payments and SendGrid email</li>
+      <li>CI with 71 automated tests, so every change to a jurisdiction integration is checked before it ships</li>
+    </ul></div>
+    <div><h3>Why it matters for your project</h3><p>PermitVista is the same shape as most enterprise data work: dozens of inconsistent sources, a nightly bulk layer plus a live layer, de-duplication, and a product on top that people pay for. I built and operate every part of it.</p></div>
+  </div>
+  <div class="next"><a class="btn" href="#contact" data-home>Book a scoping call</a><a href="#espiral">Next: Espiral USA →</a></div>
+</div></section>
+</article>
+
+<article class="project" id="espiral">
+<section><div class="wrap">
+  <a class="back" href="#work" data-home>← All work</a>
+  <div class="head">
+    <div>
+      <p class="eyebrow">Case study · Fintech</p>
+      <h1>Espiral USA</h1>
+      <p class="lede">A cross-border money app for US customers sending to Latin America, the UK and Europe.</p>
+      <div class="status"><span class="tag live">Live · pre-launch</span><span class="tag">CTO</span></div>
+      <a class="btn ghost" href="https://espiralusa.com">Visit espiralusa.com</a>
+    </div>
+    <div class="facts"><dl>
+      <dt>Scale</dt><dd>5 corridors · 100 PRs and 135 tickets shipped in 8 weeks · two-person team</dd>
+      <dt>Stack</dt><dd>TypeScript · NestJS · Next.js 16 · Prisma · Postgres · Azure Container Apps · GitHub Actions · PostHog · Bridge · Stripe</dd>
+    </dl></div>
+  </div>
+  <div class="body">
+    <div><h3>The problem</h3><p>Immigrants and small businesses pay 5–8% and wait days to move money abroad. Espiral gives US customers an account, same-day sends, and a way to get paid in dollars.</p></div>
+    <div><h3>What I built</h3><ul>
+      <li>NestJS API over stablecoin payment rails (Bridge) with a webhook event store, so every external event is recorded and replayable</li>
+      <li>Nightly reconciliation between internal ledgers and the rail provider</li>
+      <li>Per-corridor kill switches and admin tooling for operational control</li>
+      <li>Stripe card funding, Mexico receive via CLABE, and payroll groundwork</li>
+      <li>Bilingual Next.js app (Spanish and English), deployed on Azure Container Apps with GitHub Actions CI and PostHog analytics</li>
+    </ul></div>
+    <div><h3>Why it matters for your project</h3><p>Money movement is unforgiving. Event stores, reconciliation and kill switches are what let a two-person team operate a payments product safely, and they are what I bring to any integration where the records have to agree.</p></div>
+  </div>
+  <div class="next"><a class="btn" href="#contact" data-home>Book a scoping call</a><a href="#polymarket-edge">Next: Polymarket Edge →</a></div>
+</div></section>
+</article>
+
+<article class="project" id="polymarket-edge">
+<section><div class="wrap">
+  <a class="back" href="#work" data-home>← All work</a>
+  <div class="head">
+    <div>
+      <p class="eyebrow">Case study · Trading systems</p>
+      <h1>Polymarket Edge</h1>
+      <p class="lede">An automated market-making and research platform for Polymarket US, running unattended with real capital.</p>
+      <div class="status"><span class="tag live">Live · production</span><span class="tag">Sole engineer</span></div>
+    </div>
+    <div class="facts"><dl>
+      <dt>Scale</dt><dd>58 markets quoted continuously · ~200 fills/day · ~85 ms order latency · 25,000+ snapshots per game</dd>
+      <dt>Stack</dt><dd>Python · SQLite · WebSockets · Azure DevOps · systemd · Deribit &amp; Odds APIs</dd>
+      <dt>Reconciliation</dt><dd>500+ fills matched to exchange records, $0.00 variance</dd>
+    </dl></div>
+  </div>
+  <div class="body">
+    <div><h3>The problem</h3><p>Prediction-market prices lag real information, and small traders can't win on speed. The fee structure rewards resting orders instead. Polymarket Edge earns the maker/taker gap with model-driven quotes and treats risk control as the product.</p></div>
+    <div><h3>What I built</h3><ul>
+      <li>A 24/7 quoting engine pricing 58 Bitcoin and politics markets from Deribit options data</li>
+      <li>Live order-book stream client with order routing in about 85 ms</li>
+      <li>A fill ledger reconciled fill-by-fill against exchange records: 500+ fills, $0.00 variance</li>
+      <li>Circuit breakers for drawdown, exposure and stale feeds, with hard stops that survive restarts and deploys</li>
+      <li>In-game NBA and MLB market recorders with replay-based strategy testing</li>
+      <li>CI/CD to a cloud VM, deployed on every push and supervised by systemd</li>
+    </ul></div>
+    <div><h3>Why it matters for your project</h3><p>This is the system I'd point to if you asked whether I can be trusted with production money. It runs around the clock, reconciles to the penny, and stops itself before a person has to.</p></div>
+  </div>
+  <div class="next"><a class="btn" href="#contact" data-home>Book a scoping call</a><a href="#moviz">Next: Moviz →</a></div>
+</div></section>
+</article>
+
+<article class="project" id="moviz">
+<section><div class="wrap">
+  <a class="back" href="#work" data-home>← All work</a>
+  <div class="head">
+    <div>
+      <p class="eyebrow">Case study · Marketplace</p>
+      <h1>Moviz</h1>
+      <p class="lede">A peer-to-peer car rental marketplace for Guadalajara, with optional chauffeurs.</p>
+      <div class="status"><span class="tag">Live beta · soft launch next</span><span class="tag">Co-founder &amp; CTO</span></div>
+    </div>
+    <div class="facts"><dl>
+      <dt>Scale</dt><dd>~22,700 lines of code · 63 API endpoints · 129 automated tests · v2.8.0</dd>
+      <dt>Stack</dt><dd>Next.js · TypeScript · FastAPI · Azure SQL · Azure Blob · Entra External ID · Render · GitHub Actions</dd>
+    </dl></div>
+  </div>
+  <div class="body">
+    <div><h3>The problem</h3><p>Guadalajara car owners have no local Turo-style marketplace, and renters need Spanish-first booking with deposits and optional drivers. Moviz is that marketplace, built for how rentals actually work in Mexico.</p></div>
+    <div><h3>What I built</h3><ul>
+      <li>Listings and rule-based booking: hourly rentals, deposits, cancellations, late fees and odometer check-in</li>
+      <li>Travel zones with map pins; optional chauffeur and aircraft quote listings</li>
+      <li>Google and Apple sign-in on Microsoft Entra External ID; integrated payments</li>
+      <li>In-app chat with contact-detail blocking to keep transactions on-platform</li>
+      <li>Bilingual UI, CI, release versioning and a 129-test suite via GitHub Actions</li>
+    </ul></div>
+    <div><h3>Why it matters for your project</h3><p>A two-sided marketplace is identity, payments, rules and trust all at once. Moviz shows the full build from auth to release process, shipped by a small team at startup pace.</p></div>
+  </div>
+  <div class="next"><a class="btn" href="#contact" data-home>Book a scoping call</a><a href="#juryflow">Next: JuryFlow →</a></div>
+</div></section>
+</article>
+
+<article class="project" id="juryflow">
+<section><div class="wrap">
+  <a class="back" href="#work" data-home>← All work</a>
+  <div class="head">
+    <div>
+      <p class="eyebrow">Case study · Legal tech</p>
+      <h1>JuryFlow</h1>
+      <p class="lede">A multi-firm legal CRM, billing and client-intake platform.</p>
+      <div class="status"><span class="tag">In development · beta planned</span><span class="tag">Co-founder &amp; engineer</span></div>
+    </div>
+    <div class="facts"><dl>
+      <dt>Stack</dt><dd>Python · FastAPI · PostgreSQL · SQLAlchemy · React · TypeScript · Docker · pytest</dd>
+      <dt>Integrations</dt><dd>Clio · Filevine · Cerenade · LawPay · Affirm · Google Workspace</dd>
+    </dl></div>
+  </div>
+  <div class="body">
+    <div><h3>The problem</h3><p>Law firms lose leads and fees across disconnected tools and manual follow-up. JuryFlow brings intake, case tracking and billing into one platform for firm owners, intake staff and billing teams.</p></div>
+    <div><h3>What I'm building</h3><ul>
+      <li>Multi-tenant FastAPI backend with per-firm data isolation, JWT auth and role-based access</li>
+      <li>React dashboard: lead pipeline, case timelines and CFO analytics</li>
+      <li>Automated payment reminders by email and SMS; online payments via LawPay and Affirm</li>
+      <li>Two-way sync with Clio, Filevine and Cerenade; Google Workspace integration</li>
+      <li>Dockerized, with CI running pytest on every change</li>
+    </ul></div>
+    <div><h3>Why it matters for your project</h3><p>Multi-tenant isolation and two-way sync with incumbent systems are the hard parts of any vertical SaaS. JuryFlow is that pattern applied to legal; the same architecture fits any industry with entrenched tools.</p></div>
+  </div>
+  <div class="next"><a class="btn" href="#contact" data-home>Book a scoping call</a><a href="#permitvista">Next: PermitVista →</a></div>
+</div></section>
+</article>
+
+<script>
+(function(){
+  var projects = ['permitvista','espiral','polymarket-edge','moviz','juryflow'];
+  var home = document.getElementById('home');
+  function route(){
+    var h = (location.hash || '#').slice(1);
+    var isProject = projects.indexOf(h) !== -1;
+    home.classList.toggle('hidden', isProject);
+    projects.forEach(function(id){
+      document.getElementById(id).classList.toggle('active', id === h);
+    });
+    if (isProject) { window.scrollTo(0,0); }
+    else if (h) {
+      var el = document.getElementById(h);
+      if (el) { el.scrollIntoView(); }
+    } else { window.scrollTo(0,0); }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>
